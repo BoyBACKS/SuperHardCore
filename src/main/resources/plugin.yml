@@ -1,0 +1,14 @@
+name: SuperHardCore
+version: '${project.version}'
+main: net.boybacks.superhardcore.Main
+api-version: 1.19
+author: BoyBACKS
+description: Plugin created especially for Super HardCore SMP.
+depend:
+  - Tempban-Api
+commands:
+  sethealth:
+  debug:
+  updates:
+    aliases:
+      - changelog
