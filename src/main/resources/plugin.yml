@@ -12,3 +12,7 @@ commands:
   updates:
     aliases:
       - changelog
+  crafts:
+    aliases:
+      - craftings
+      - recipes

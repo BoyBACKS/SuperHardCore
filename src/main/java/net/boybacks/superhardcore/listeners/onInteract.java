@@ -15,10 +15,10 @@ public class onInteract implements Listener {
   public void onItemInteract(PlayerInteractEvent event) {
     Player player = event.getPlayer();
     PlayerInventory playerInventory = player.getInventory();
-    if (event.getAction() != Action.RIGHT_CLICK_AIR) {
-      return;
-    }
-    if (playerInventory.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lRipped Heart"))) {
+    if (playerInventory.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lRipped Heart")) && playerInventory.getItemInHand() != null) {
+      if (event.getAction() != Action.RIGHT_CLICK_AIR) {
+        return;
+      }
       double health = player.getMaxHealth();
       if (health == 30) {
         player.sendMessage("&cYour health has reached its maximum level!");
@@ -38,6 +38,9 @@ public class onInteract implements Listener {
       {
         allPlayers.playSound(allPlayers.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 3.0f, 0.6f);
       }
+    }
+    else {
+
     }
   }
 

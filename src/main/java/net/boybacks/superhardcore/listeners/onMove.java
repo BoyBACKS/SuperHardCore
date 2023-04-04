@@ -22,6 +22,9 @@ public class onMove implements Listener {
       if (player.getInventory().getItemInHand().getType().equals(Material.TORCH)) {
         return;
       }
+      else if (player.getInventory().getItemInOffHand().getType() == Material.TORCH) {
+        return;
+      }
       else if (effect != null) {
         return;
       }

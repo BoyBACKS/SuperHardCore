@@ -2,6 +2,7 @@ package net.boybacks.superhardcore;
 
 import net.boybacks.releaseschecker.ReleaseChecker;
 import net.boybacks.superhardcore.bossbar.*;
+import net.boybacks.superhardcore.craftingrecipes.onCraftingCommand;
 import net.boybacks.superhardcore.listeners.*;
 import net.boybacks.superhardcore.managers.*;
 import net.boybacks.superhardcore.update.*;
@@ -28,6 +29,7 @@ public class Main extends JavaPlugin implements Listener {
     RecipesManager.recipes();
     RecipesManager.removeBukkitRecipes();
     new onUpdateCommand(this);
+    new onCraftingCommand(this);
     removeEnemyBars();
   }
 
@@ -86,7 +88,7 @@ public class Main extends JavaPlugin implements Listener {
     getServer().getPluginManager().registerEvents(new onMove(), this);
     getServer().getPluginManager().registerEvents(new onSpawn(), this);
     getServer().getPluginManager().registerEvents(new EntityBossBar(), this);
-    getServer().getPluginManager().registerEvents(new onInteract(), this);
+    //getServer().getPluginManager().registerEvents(new onInteract(), this);
     getServer().getPluginManager().registerEvents(new onKill(), this);
     getServer().getPluginManager().registerEvents(new onRepair(), this);
     //getServer().getPluginManager().registerEvents(new onDamage(), this);
@@ -96,7 +98,7 @@ public class Main extends JavaPlugin implements Listener {
   }
 
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.1");
+    ReleaseChecker.getVersion("v0.1.1");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
       System.out.println("There is a new version to download, go to github to get it!");

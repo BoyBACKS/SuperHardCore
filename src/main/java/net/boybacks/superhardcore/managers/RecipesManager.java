@@ -16,7 +16,7 @@ public class RecipesManager {
     heartRecipe.shape("323", "212", "323");
     heartRecipe.setIngredient('1', Material.FERMENTED_SPIDER_EYE);
     heartRecipe.setIngredient('2', Material.GOLD_INGOT);
-    heartRecipe.setIngredient('3', ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&a&lInfused Crystal", null, true));
+    heartRecipe.setIngredient('3', ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&d&lInfused Crystal", null, true));
     main.getServer().addRecipe(heartRecipe);
 
     ItemStack saddle = ItemCraftingManager.createItem(Material.SADDLE, 1, 0, "");
@@ -27,7 +27,7 @@ public class RecipesManager {
     saddleRecipe.setIngredient('3', Material.TRIPWIRE_HOOK);
     main.getServer().addRecipe(saddleRecipe);
 
-    ItemStack crystal = ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&a&lCrystal");
+    ItemStack crystal = ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&d&lCrystal");
     ShapedRecipe crystalRecipe = new ShapedRecipe(new NamespacedKey(main, "crystal"), new ItemStack(crystal));
     crystalRecipe.shape("121", "131", "111");
     crystalRecipe.setIngredient('1', Material.REDSTONE);
@@ -35,12 +35,12 @@ public class RecipesManager {
     crystalRecipe.setIngredient('3', Material.AMETHYST_SHARD);
     main.getServer().addRecipe(crystalRecipe);
 
-    ItemStack infusedCrystal = ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&a&lInfused Crystal", null, true);
+    ItemStack infusedCrystal = ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&d&lInfused Crystal", null, true);
     ShapedRecipe infusedCrystalRecipe = new ShapedRecipe(new NamespacedKey(main, "infused-crystal"), new ItemStack(infusedCrystal));
     infusedCrystalRecipe.shape("121", "232", "141");
     infusedCrystalRecipe.setIngredient('1', Material.REDSTONE);
     infusedCrystalRecipe.setIngredient('2', Material.GUNPOWDER);
-    infusedCrystalRecipe.setIngredient('3', ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&a&lCrystal"));
+    infusedCrystalRecipe.setIngredient('3', ItemCraftingManager.createItem(Material.EMERALD, 1, 0, "&d&lCrystal"));
     infusedCrystalRecipe.setIngredient('4', Material.BLAZE_POWDER);
     main.getServer().addRecipe(infusedCrystalRecipe);
 

@@ -38,7 +38,7 @@ public class onUpdateInventory {
 
   Last Page
 
-    pageList.add(
+    .add(
         new ComponentBuilder(fix("  &c&lChange log v0.1"))
             .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
@@ -53,22 +53,22 @@ public class onUpdateInventory {
 
   public static void updateInv(Player player) {
     Inventory inventory = Bukkit.createInventory(player, 27, fix("&4&lChange Log"));
-    ArrayList<BaseComponent[]> pageList = new ArrayList<>();
-    pageList.add(
+    ArrayList<BaseComponent[]> bookv01Page = new ArrayList<>();
+    bookv01Page.add(
         new ComponentBuilder(fix("  &c&lChange log v0.1"))
             .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
             .append(fix("\n\n   &a&lMajor Changes:"))
             .append(fix("\n\n&a&l+&0 We setted everything up for play"))
             .append(fix("\n\n&a&l+&0 We added new command /updates, to open changelog menu"))
             .create());
-    pageList.add(new ComponentBuilder(fix("&c&l-&0 Debug commands removed /zdrowie, /daj, /sprawdz"))
+    bookv01Page.add(new ComponentBuilder(fix("&c&l-&0 Debug commands removed /zdrowie, /daj, /sprawdz"))
         .append(fix("\n\n&b&l⟳&0 Debug command /debug is available only for operators players"))
         .append(fix("\n\n&b&l⟳&0 Command /sethealth is available only for operators players"))
         .create());
-    pageList.add(new ComponentBuilder(fix("&6&l?&0 We think about adding new recipes and features"))
+    bookv01Page.add(new ComponentBuilder(fix("&6&l?&0 We think about adding new recipes and features"))
         .append(fix("\n\n&6&l?&0 We think about add inventory with custom items recipes"))
         .create());
-    pageList.add(
+    bookv01Page.add(
         new ComponentBuilder(fix("  &c&lChange log v0.1"))
             .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
@@ -78,8 +78,34 @@ public class onUpdateInventory {
                 .create())
             .create());
 
-    ItemStack bookv011 = BookBuilderManager.BookBuilder("&c&lUpdate v0.1", "Super HardCore Updates", pageList);
-    inventory.setItem(11, bookv011);
+    ItemStack bookv01 = BookBuilderManager.BookBuilder("&c&lUpdate v0.1", "Super HardCore Updates", bookv01Page);
+    inventory.setItem(11, bookv01);
+
+    ArrayList<BaseComponent[]> bookv011Page = new ArrayList<>();
+    bookv011Page.add(new ComponentBuilder(fix(" &c&lChange log v0.1.1"))
+        .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+        .append(fix("\n\n   &a&lMajor Changes:"))
+        .append(fix("\n\n&a&l+&0 We added new command /recipes and is available only for operators players - BETA"))
+        .create());
+
+    bookv011Page.add(new ComponentBuilder(fix("&b&l⟳&0 We changed damage by darkness - for now torch in off hand is working properly"))
+            .append(fix("\n\n&b&l⟳&0 Reciving hearts by &c&lRipped Heart &0is currently off becouse of code errors"))
+        .create());
+    bookv011Page.add(new ComponentBuilder(fix("&b&l⟳&0 We have changed colors to Crystal and Infused Crystal to pink for future reasons*"))
+        .append(fix("\n\n&b&l⟳&0 We are currently working on add inventories for custom crafting recipes"))
+        .create());
+    bookv011Page.add(new ComponentBuilder(fix("\n\n&6&l?&0 * We are thinking about add texture pack for better game style")).create());
+    bookv011Page.add(
+        new ComponentBuilder(fix(" &c&lChange log v0.1.1"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki"))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
+                    .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
+                .create())
+            .create());
+    ItemStack bookv011 = BookBuilderManager.BookBuilder("&c&lUpdate v0.1.1", "Super HardCore Updates", bookv011Page);
+    inventory.setItem(12, bookv011);
 
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
