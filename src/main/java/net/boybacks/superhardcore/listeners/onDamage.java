@@ -1,6 +1,6 @@
 package net.boybacks.superhardcore.listeners;
 
-import net.boybacks.superhardcore.managers.ItemCraftingManager;
+import net.boybacks.superhardcore.managers.ItemBuilderManager;
 import net.boybacks.superhardcore.managers.RandomizerManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -20,7 +20,7 @@ public class onDamage implements Listener {
     Player player = (Player) event.getDamager();
     if (player.getInventory().getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lSacrifice Dagger"))) {
 
-      ItemStack rippedHeart = ItemCraftingManager.createItem(Material.FERMENTED_SPIDER_EYE, 1, 0, "&c&lRipped Heart", null, true);
+      ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE, 1).setTitle("&c&lRipped Heart").addGlow().toItemStack();
 
       //TODO Naprwaić problem błędów
       if (entity instanceof Player) {

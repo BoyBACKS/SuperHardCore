@@ -1,12 +1,13 @@
 package net.boybacks.superhardcore.managers;
 
-import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.enchantments.*;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.*;
-import org.bukkit.entity.*;
 import java.util.*;
 import org.bukkit.*;
+import org.bukkit.potion.PotionData;
+import org.bukkit.potion.PotionType;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
@@ -72,8 +73,9 @@ public class ItemBuilderManager {
 
   public ItemBuilderManager addGlow() {
     final ItemMeta im = this.is.getItemMeta();
-    im.addEnchant(Enchantment.DURABILITY, 10, true);
-    im.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_DESTROYS, ItemFlag.HIDE_PLACED_ON, ItemFlag.HIDE_POTION_EFFECTS, ItemFlag.HIDE_UNBREAKABLE });
+    im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+    this.is.setItemMeta(im);
+    this.is.addUnsafeEnchantment(Enchantment.LUCK, 1);
     return this;
   }
 
@@ -148,48 +150,32 @@ public class ItemBuilderManager {
     return this;
   }
 
-  public ItemBuilderManager addBookPage(final String[] page) {
-    final BookMeta bookMeta = (BookMeta) this.is.getItemMeta();
-    bookMeta.addPage(page);
-    this.is.setItemMeta((ItemMeta)bookMeta);
+  public ItemBuilderManager setPotionType(PotionType potionType, boolean extended, boolean upgraded) {
+    PotionMeta im = (PotionMeta) this.is.getItemMeta();
+    im.setBasePotionData(new PotionData(potionType, extended, upgraded));
+    this.is.setItemMeta(im);
     return this;
   }
-  public ItemBuilderManager addBookPage(final BaseComponent[] page) {
-    final BookMeta bookMeta = (BookMeta) this.is.getItemMeta();
-    bookMeta.spigot().addPage(page);
-    this.is.setItemMeta((ItemMeta)bookMeta);
-    return this;
-  }
-
-  public ItemBuilderManager setBookPage(final int page, final String data) {
-    final BookMeta bookMeta = (BookMeta)this.is.getItemMeta();
-    bookMeta.setPage(page, data);
-    this.is.setItemMeta((ItemMeta)bookMeta);
-    return this;
-  }
-
-  public ItemBuilderManager setBookOwner(final String authorName) {
-    final BookMeta bookMeta = (BookMeta)this.is.getItemMeta();
-    bookMeta.setAuthor(authorName);
-    this.is.setItemMeta((ItemMeta)bookMeta);
-    return this;
-  }
-
-  public ItemBuilderManager setBookOwner(final Player player) {
-    final BookMeta bookMeta = (BookMeta)this.is.getItemMeta();
-    bookMeta.setAuthor(player.getName());
-    this.is.setItemMeta((ItemMeta)bookMeta);
-    return this;
-  }
-
-  public ItemBuilderManager setBookOwner(final UUID uuid) {
-    final BookMeta bookMeta = (BookMeta)this.is.getItemMeta();
-    bookMeta.setAuthor(Bukkit.getPlayer(uuid).toString());
-    this.is.setItemMeta((ItemMeta)bookMeta);
+  public ItemBuilderManager setPotionType(PotionType potionType) {
+    PotionMeta im = (PotionMeta) this.is.getItemMeta();
+    im.setBasePotionData(new PotionData(potionType));
+    this.is.setItemMeta(im);
     return this;
   }
 
   public ItemStack toItemStack() {
     return this.is;
+  }
+
+  /* Recipe Block Section */
+
+  public static void removeDefaultCraft(ItemStack item) {
+    Iterator<Recipe> it = Bukkit.getServer().recipeIterator();
+    while (it.hasNext()) {
+      ItemStack result = it.next().getResult();
+      if (result.isSimilar(item)) {
+        it.remove();
+      }
+    }
   }
 }

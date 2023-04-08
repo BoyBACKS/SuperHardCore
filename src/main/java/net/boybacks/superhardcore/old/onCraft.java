@@ -1,4 +1,4 @@
-package net.boybacks.superhardcore.listeners;
+package net.boybacks.superhardcore.old;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;

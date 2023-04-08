@@ -13,10 +13,10 @@ import org.bukkit.inventory.ItemStack;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
-public class Crystal implements Listener {
+public class RippedHeart implements Listener {
 
-  public static void onCrystalInventory(Player player) {
-    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &d&lCrystal"));
+  public static void onRippedHeartInventory(Player player) {
+    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &c&lRipped Heart"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.WHITE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
@@ -24,23 +24,23 @@ public class Crystal implements Listener {
       }
     }
 
-    ItemStack redstone = new ItemStack(Material.REDSTONE);
-    inventory.setItem(10, redstone);
-    inventory.setItem(12, redstone);
-    inventory.setItem(19, redstone);
-    inventory.setItem(21, redstone);
-    inventory.setItem(28, redstone);
-    inventory.setItem(29, redstone);
-    inventory.setItem(30, redstone);
+    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lInfused Crystal").addGlow().toItemStack();
+    inventory.setItem(10, infusedCrystal);
+    inventory.setItem(12, infusedCrystal);
+    inventory.setItem(28, infusedCrystal);
+    inventory.setItem(30, infusedCrystal);
 
-    ItemStack emerald = new ItemStack(Material.EMERALD);
-    inventory.setItem(11, emerald);
+    ItemStack goldIngot = new ItemStack(Material.GOLD_INGOT);
+    inventory.setItem(11, goldIngot);
+    inventory.setItem(19, goldIngot);
+    inventory.setItem(21, goldIngot);
+    inventory.setItem(29, goldIngot);
 
-    ItemStack amethyst = new ItemStack(Material.AMETHYST_SHARD);
-    inventory.setItem(20, amethyst);
+    ItemStack fermentedSpiderEye = new ItemStack(Material.FERMENTED_SPIDER_EYE);
+    inventory.setItem(20, fermentedSpiderEye);
 
-    ItemStack crystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lCrystal").toItemStack();
-    inventory.setItem(24, crystal);
+    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE, 1).setTitle("&c&lRipped Heart").addGlow().toItemStack();
+    inventory.setItem(24, rippedHeart);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();
     inventory.setItem(40, exit);
@@ -49,11 +49,11 @@ public class Crystal implements Listener {
   }
 
   @EventHandler
-  public static void onCrystalClick(InventoryClickEvent event) {
+  public static void onRippedHeartClick(InventoryClickEvent event) {
     if (event.getClickedInventory() == null) {
       return;
     }
-    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &d&lCrystal"))) {
+    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &c&lRipped Heart"))) {
       event.setCancelled(true);
       Player player = (Player) event.getWhoClicked();
       if (event.getCurrentItem() == null) {

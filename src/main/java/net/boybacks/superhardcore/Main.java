@@ -2,7 +2,8 @@ package net.boybacks.superhardcore;
 
 import net.boybacks.releaseschecker.ReleaseChecker;
 import net.boybacks.superhardcore.bossbar.*;
-import net.boybacks.superhardcore.craftingrecipes.onCraftingCommand;
+import net.boybacks.superhardcore.craftingrecipes.items.*;
+import net.boybacks.superhardcore.craftingrecipes.*;
 import net.boybacks.superhardcore.listeners.*;
 import net.boybacks.superhardcore.managers.*;
 import net.boybacks.superhardcore.update.*;
@@ -28,6 +29,7 @@ public class Main extends JavaPlugin implements Listener {
     registerListeners();
     RecipesManager.recipes();
     RecipesManager.removeBukkitRecipes();
+    onCharlieRevenge.runnableCharlieRevenge();
     new onUpdateCommand(this);
     new onCraftingCommand(this);
     removeEnemyBars();
@@ -82,26 +84,39 @@ public class Main extends JavaPlugin implements Listener {
   }
 
   public void registerListeners() {
-    getServer().getPluginManager().registerEvents(this, this);
+    /* Old Listeners */
     //getServer().getPluginManager().registerEvents(new onCraft(), this);
+    //getServer().getPluginManager().registerEvents(new onMove(), this);
+
+    getServer().getPluginManager().registerEvents(this, this);
     getServer().getPluginManager().registerEvents(new onDeath(), this);
-    getServer().getPluginManager().registerEvents(new onMove(), this);
     getServer().getPluginManager().registerEvents(new onSpawn(), this);
     getServer().getPluginManager().registerEvents(new EntityBossBar(), this);
-    //getServer().getPluginManager().registerEvents(new onInteract(), this);
+    getServer().getPluginManager().registerEvents(new onInteract(), this);
     getServer().getPluginManager().registerEvents(new onKill(), this);
     getServer().getPluginManager().registerEvents(new onRepair(), this);
-    //getServer().getPluginManager().registerEvents(new onDamage(), this);
     getServer().getPluginManager().registerEvents(new onJoin(), this);
+    //getServer().getPluginManager().registerEvents(new onDamage(), this);
 
+    /* Update Inventory Click Event */
     getServer().getPluginManager().registerEvents(new onUpdateClick(), this);
+
+    /* Custom Crafting Inventories Click Events */
+    getServer().getPluginManager().registerEvents(new onCraftingClick(), this);
+    getServer().getPluginManager().registerEvents(new Crystal(), this);
+    getServer().getPluginManager().registerEvents(new InfusedCrystal(), this);
+    getServer().getPluginManager().registerEvents(new RippedHeart(), this);
+    getServer().getPluginManager().registerEvents(new Saddle(), this);
+    getServer().getPluginManager().registerEvents(new TotemOfUndying(), this);
   }
 
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.1.1");
+    ReleaseChecker.getVersion("v0.2");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
-      System.out.println("There is a new version to download, go to github to get it!");
+      System.out.println(ChatColor.RED + "There is a new version to download, go to github to get it!");
     }
   }
+
+
 }

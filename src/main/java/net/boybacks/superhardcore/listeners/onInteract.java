@@ -15,7 +15,10 @@ public class onInteract implements Listener {
   public void onItemInteract(PlayerInteractEvent event) {
     Player player = event.getPlayer();
     PlayerInventory playerInventory = player.getInventory();
-    if (playerInventory.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lRipped Heart")) && playerInventory.getItemInHand() != null) {
+    if (playerInventory.getItemInHand().getItemMeta() == null) {
+      return;
+    }
+    if (playerInventory.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lRipped Heart"))) {
       if (event.getAction() != Action.RIGHT_CLICK_AIR) {
         return;
       }
@@ -38,9 +41,6 @@ public class onInteract implements Listener {
       {
         allPlayers.playSound(allPlayers.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 3.0f, 0.6f);
       }
-    }
-    else {
-
     }
   }
 

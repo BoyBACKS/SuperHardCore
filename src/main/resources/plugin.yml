@@ -16,3 +16,4 @@ commands:
     aliases:
       - craftings
       - recipes
+      - recipe

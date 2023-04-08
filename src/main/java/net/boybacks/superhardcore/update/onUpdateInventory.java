@@ -72,7 +72,7 @@ public class onUpdateInventory {
         new ComponentBuilder(fix("  &c&lChange log v0.1"))
             .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
-                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates"))
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
                     .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
                 .create())
@@ -99,13 +99,40 @@ public class onUpdateInventory {
         new ComponentBuilder(fix(" &c&lChange log v0.1.1"))
             .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
-                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates"))
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
                     .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
                 .create())
             .create());
     ItemStack bookv011 = BookBuilderManager.BookBuilder("&c&lUpdate v0.1.1", "Super HardCore Updates", bookv011Page);
     inventory.setItem(12, bookv011);
+
+
+    /*Zrobić książke z patchami 0.2 (Nerf ciemności, gui /crafts, receptura totemu, naprawa błędu z interakcjami,
+        naprawa błędu z blokowaniem craftingów, (?) testy z texturepackiem)*/
+    ArrayList<BaseComponent[]> bookv02Page = new ArrayList<>();
+    bookv02Page.add(new ComponentBuilder(fix("  &c&lChange log v0.2"))
+        .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+        .append(fix("\n\n   &a&lMajor Changes:"))
+        .append(fix("\n\n&a&l+&0 We added /recipes command, all custom recipes are available there - The command is available to all players and has no permissions"))
+        .create());
+    bookv02Page.add(new ComponentBuilder(fix("&a&l+&0 We added recipe for &nTotem of Undying"))
+            .append(fix("\n\n&b&l⟳&0 We have changed the mechanics of receiving damage from darkness. From now on, at &nlight level 7 to 8 &0there is a warning, from &nlight level 6 &0the player will receive damage changed from &n1 damage &0to &n1.5 damage"))
+        .create());
+    bookv02Page.add(new ComponentBuilder(fix("&b&l⟳&0 We fixed the bug with interactions, from now on everything works"))
+            .append(fix("\n\n&b&l⟳&0 We fixed the bug with crafting, from now on everything works"))
+        .create());
+    bookv02Page.add(
+        new ComponentBuilder(fix("  &c&lChange log v0.2"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates"))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
+                    .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
+                .create())
+            .create());
+    ItemStack bookv02 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2", "Super HardCore Updates", bookv02Page);
+    inventory.setItem(13, bookv02);
 
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {

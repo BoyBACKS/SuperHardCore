@@ -13,34 +13,35 @@ import org.bukkit.inventory.ItemStack;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
-public class Crystal implements Listener {
+public class Saddle implements Listener {
 
-  public static void onCrystalInventory(Player player) {
-    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &d&lCrystal"));
+  public static void onSaddleInventory(Player player) {
+    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &8Saddle"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.WHITE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
         inventory.setItem(i, glassPane);
       }
     }
+    ItemStack air = new ItemStack(Material.AIR);
+    inventory.setItem(20, air);
+    inventory.setItem(29, air);
 
-    ItemStack redstone = new ItemStack(Material.REDSTONE);
-    inventory.setItem(10, redstone);
-    inventory.setItem(12, redstone);
-    inventory.setItem(19, redstone);
-    inventory.setItem(21, redstone);
-    inventory.setItem(28, redstone);
-    inventory.setItem(29, redstone);
-    inventory.setItem(30, redstone);
+    ItemStack leather = new ItemStack(Material.LEATHER);
+    inventory.setItem(10, leather);
+    inventory.setItem(11, leather);
+    inventory.setItem(12, leather);
 
-    ItemStack emerald = new ItemStack(Material.EMERALD);
-    inventory.setItem(11, emerald);
+    ItemStack copper = new ItemStack(Material.COPPER_INGOT);
+    inventory.setItem(19, copper);
+    inventory.setItem(21, copper);
 
-    ItemStack amethyst = new ItemStack(Material.AMETHYST_SHARD);
-    inventory.setItem(20, amethyst);
+    ItemStack tripwireHook = new ItemStack(Material.TRIPWIRE_HOOK);
+    inventory.setItem(28, tripwireHook);
+    inventory.setItem(30, tripwireHook);
 
-    ItemStack crystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lCrystal").toItemStack();
-    inventory.setItem(24, crystal);
+    ItemStack saddle = new ItemStack(Material.SADDLE);
+    inventory.setItem(24, saddle);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();
     inventory.setItem(40, exit);
@@ -49,11 +50,11 @@ public class Crystal implements Listener {
   }
 
   @EventHandler
-  public static void onCrystalClick(InventoryClickEvent event) {
+  public static void onRippedHeartClick(InventoryClickEvent event) {
     if (event.getClickedInventory() == null) {
       return;
     }
-    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &d&lCrystal"))) {
+    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &8Saddle"))) {
       event.setCancelled(true);
       Player player = (Player) event.getWhoClicked();
       if (event.getCurrentItem() == null) {

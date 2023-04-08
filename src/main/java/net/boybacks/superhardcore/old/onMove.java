@@ -1,17 +1,22 @@
-package net.boybacks.superhardcore.listeners;
+package net.boybacks.superhardcore.old;
 
-import org.bukkit.Location;
-import org.bukkit.Material;
+import net.boybacks.superhardcore.Main;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
+import java.util.HashMap;
 
 import static org.bukkit.potion.PotionEffectType.NIGHT_VISION;
 
+
 public class onMove implements Listener {
 
+  //TODO Klasa do wywalenia
   @EventHandler
   public void onPlayerMove(PlayerMoveEvent e) {
     Player player = e.getPlayer();

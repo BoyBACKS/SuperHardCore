@@ -16,7 +16,7 @@ public class onDeath implements Listener {
     double health = player.getMaxHealth();
     health -= 1;
     if (health == 0) {                                  // for now is 5 minutes
-      TempBan.banPlayer(player, fix("&lYou have died!"), 300);
+      TempBan.banPlayer(player, fix("&lYou have died!"), 1800);
       TempBan.sendBanScreen(player);
       return;
     }

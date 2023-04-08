@@ -1,6 +1,6 @@
 package net.boybacks.superhardcore.listeners;
 
-import net.boybacks.superhardcore.managers.ItemCraftingManager;
+import net.boybacks.superhardcore.managers.ItemBuilderManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -19,7 +19,7 @@ public class onKill implements Listener {
 
     if (entityType.equals(EntityType.WARDEN)) {
       if (randomizer(300)) { // 30.0%
-        ItemStack heart = ItemCraftingManager.createItem(Material.FERMENTED_SPIDER_EYE, 1, 0, "&c&lRipped Heart", null, true);
+        ItemStack heart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE, 1).setTitle("&c&lRipped Heart").addGlow().toItemStack();
         event.getDrops().add(heart);
       }
     }
