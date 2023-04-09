@@ -111,7 +111,7 @@ public class Main extends JavaPlugin implements Listener {
   }
 
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.2");
+    ReleaseChecker.getVersion("v0.2.1");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
       System.out.println(ChatColor.RED + "There is a new version to download, go to github to get it!");

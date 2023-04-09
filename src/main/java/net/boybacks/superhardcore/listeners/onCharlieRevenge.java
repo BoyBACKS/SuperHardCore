@@ -50,9 +50,10 @@ public class onCharlieRevenge {
         }
         player.playSound(player.getLocation(), Sound.ENTITY_HUSK_AMBIENT, 5.0f, 0.5f);
       }
-      else {
-        player.removePotionEffect(PotionEffectType.DARKNESS);
-      }
+      //TODO Zmienić
+//      else {
+//        player.removePotionEffect(PotionEffectType.DARKNESS);
+//      }
     }
   }
 }

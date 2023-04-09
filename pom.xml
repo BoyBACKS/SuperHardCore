@@ -6,7 +6,7 @@
 
     <groupId>net.boybacks</groupId>
     <artifactId>superhardcore</artifactId>
-    <version>0.2</version>
+    <version>0.2.1</version>
     <packaging>jar</packaging>
 
     <name>SuperHardCore</name>
