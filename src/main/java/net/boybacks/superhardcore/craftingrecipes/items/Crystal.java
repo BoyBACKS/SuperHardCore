@@ -39,7 +39,7 @@ public class Crystal implements Listener {
     ItemStack amethyst = new ItemStack(Material.AMETHYST_SHARD);
     inventory.setItem(20, amethyst);
 
-    ItemStack crystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lCrystal").toItemStack();
+    ItemStack crystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lCrystal").addLoreLine("&8Custom Item").toItemStack();
     inventory.setItem(24, crystal);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();

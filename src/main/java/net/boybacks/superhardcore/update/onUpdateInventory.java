@@ -102,7 +102,7 @@ public class onUpdateInventory {
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
                 .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v011"))
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
-                    .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
+                    .create()))
                 .create())
             .create());
     ItemStack bookv011 = BookBuilderManager.BookBuilder("&c&lUpdate v0.1.1", "Super HardCore Updates", bookv011Page);
@@ -129,7 +129,7 @@ public class onUpdateInventory {
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
                 .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v02"))
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
-                    .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
+                    .create()))
                 .create())
             .create());
     ItemStack bookv02 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2", "Super HardCore Updates", bookv02Page);
@@ -143,12 +143,28 @@ public class onUpdateInventory {
             .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
                 .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v021"))
                 .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
-                    .append(fix("\n&4&lAt the moment, this feature is not available!")).create()))
+                    .create()))
                 .create())
             .create());
     ItemStack bookv021 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2.1", "Super HardCore Updates", bookv021Page);
     inventory.setItem(14, bookv021);
 
+    ArrayList<BaseComponent[]> bookv022_patch1Page = new ArrayList<>();
+    bookv022_patch1Page.add(new ComponentBuilder(fix("&c&lChange log v0.2.2-P.1"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(fix("\n\n&a&l+&0 We added new recipes and items, for now we published first patch of that version"))
+        .create());
+    bookv022_patch1Page.add(
+        new ComponentBuilder(fix("&c&lChange log v0.2.2-P.1"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v022"))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
+                    .create()))
+                .create())
+            .create());
+    ItemStack bookv022_patch1 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2.2-Patch.1", "Super HardCore Updates", bookv022_patch1Page);
+    inventory.setItem(15, bookv022_patch1);
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.BLACK_STAINED_GLASS_PANE).setTitle("&a").toItemStack();

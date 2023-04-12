@@ -135,7 +135,7 @@ public class ItemBuilderManager {
     if (im.hasLore()) {
       lore = new ArrayList<String>(im.getLore());
     }
-    lore.add(line);
+    lore.add(fix(line));
     im.setLore((List)lore);
     this.is.setItemMeta(im);
     return this;

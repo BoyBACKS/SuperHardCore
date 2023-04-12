@@ -38,10 +38,10 @@ public class InfusedCrystal implements Listener {
     ItemStack blazePowder = new ItemStack(Material.BLAZE_POWDER);
     inventory.setItem(29, blazePowder);
 
-    ItemStack crystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lCrystal").toItemStack();
+    ItemStack crystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lCrystal").addLoreLine("&8Custom Item").toItemStack();
     inventory.setItem(20, crystal);
 
-    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lInfused Crystal").addGlow().toItemStack();
+    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lInfused Crystal").addLoreLine("&8Custom Item").addGlow().toItemStack();
     inventory.setItem(24, infusedCrystal);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();

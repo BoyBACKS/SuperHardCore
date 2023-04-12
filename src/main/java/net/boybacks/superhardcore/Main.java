@@ -11,6 +11,9 @@ import org.bukkit.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.*;
+import org.bukkit.event.inventory.FurnaceSmeltEvent;
+import org.bukkit.inventory.FurnaceRecipe;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.*;
 import org.jetbrains.annotations.*;
 
@@ -33,6 +36,7 @@ public class Main extends JavaPlugin implements Listener {
     new onUpdateCommand(this);
     new onCraftingCommand(this);
     removeEnemyBars();
+    Test();
   }
 
   @Override
@@ -78,7 +82,10 @@ public class Main extends JavaPlugin implements Listener {
         return false;
       }
     if (command.getName().equalsIgnoreCase("debug") && player.isOp()) {
-
+      ItemStack heartChunk = new ItemBuilderManager(Material.SPIDER_EYE, 1).setTitle("&c&lHeart Chunk").addLoreLine("&8Custom Item").toItemStack();
+      ItemStack wildSoul = new ItemBuilderManager(Material.FEATHER, 1).setTitle("&b&lWild Soul").addLoreLine("&8Custom Item").toItemStack();
+      ItemStack soul = new ItemBuilderManager(Material.FEATHER, 1).setTitle("&b&lSoul").addLoreLine("&8Custom Item").addGlow().toItemStack();
+      player.getInventory().addItem(heartChunk, soul, wildSoul);
     }
     return false;
   }
@@ -111,12 +118,14 @@ public class Main extends JavaPlugin implements Listener {
   }
 
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.2.1");
+    ReleaseChecker.getVersion("v0.2.2-Patch.1");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
       System.out.println(ChatColor.RED + "There is a new version to download, go to github to get it!");
     }
   }
 
+  public static void Test() {
 
+  }
 }

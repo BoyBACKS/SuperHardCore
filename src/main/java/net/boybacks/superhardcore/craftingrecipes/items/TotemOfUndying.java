@@ -31,16 +31,16 @@ public class TotemOfUndying implements Listener {
     inventory.setItem(28, goldIngot);
     inventory.setItem(30, goldIngot);
 
-    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE, 1).setTitle("&c&lRipped Heart").addGlow().toItemStack();
+    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lRipped Heart").addLoreLine("&8Custom Item").addGlow().toItemStack();
     inventory.setItem(20, rippedHeart);
 
-    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lInfused Crystal").addGlow().toItemStack();
+    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lInfused Crystal").addLoreLine("&8Custom Item").addGlow().toItemStack();
     inventory.setItem(11, infusedCrystal);
     inventory.setItem(19, infusedCrystal);
     inventory.setItem(21, infusedCrystal);
     inventory.setItem(29, infusedCrystal);
 
-    ItemStack totemOfUndying = new ItemBuilderManager(Material.TOTEM_OF_UNDYING, 1).toItemStack();
+    ItemStack totemOfUndying = new ItemBuilderManager(Material.TOTEM_OF_UNDYING).toItemStack();
     inventory.setItem(24, totemOfUndying);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();

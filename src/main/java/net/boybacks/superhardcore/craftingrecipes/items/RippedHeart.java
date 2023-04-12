@@ -24,7 +24,7 @@ public class RippedHeart implements Listener {
       }
     }
 
-    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD, 1).setTitle("&d&lInfused Crystal").addGlow().toItemStack();
+    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lInfused Crystal").addLoreLine("&8Custom Item").addGlow().toItemStack();
     inventory.setItem(10, infusedCrystal);
     inventory.setItem(12, infusedCrystal);
     inventory.setItem(28, infusedCrystal);
@@ -36,10 +36,10 @@ public class RippedHeart implements Listener {
     inventory.setItem(21, goldIngot);
     inventory.setItem(29, goldIngot);
 
-    ItemStack fermentedSpiderEye = new ItemStack(Material.FERMENTED_SPIDER_EYE);
-    inventory.setItem(20, fermentedSpiderEye);
+    ItemStack heart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lHeart").addLoreLine("&8Custom Item").toItemStack();
+    inventory.setItem(20, heart);
 
-    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE, 1).setTitle("&c&lRipped Heart").addGlow().toItemStack();
+    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lRipped Heart").addLoreLine("&8Custom Item").addGlow().toItemStack();
     inventory.setItem(24, rippedHeart);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();

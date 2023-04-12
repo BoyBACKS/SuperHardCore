@@ -19,11 +19,14 @@ public class onRepair implements Listener {
   public void onAnvilRepair(InventoryClickEvent event) {
     Player player = (Player) event.getWhoClicked();
     if (event.getInventory().getType() == InventoryType.ANVIL) {
-      if (event.getInventory().getItem(3) == null) {
+      if (event.getCurrentItem().getItemMeta() == null) {
         return;
       }
-      ItemStack itemStack = event.getInventory().getItem(3);
-      if (itemStack.getItemMeta().getDisplayName().equals(fix("&c&lSacrifice Dagger"))) {
+//      if (event.getInventory().getItem(3) == null) {
+//        return;
+//      }
+      //ItemStack itemStack = event.getInventory().getItem(3);
+      if (event.getCurrentItem().getItemMeta().getDisplayName().equals(fix("&c&lSacrifice Dagger"))) {
         event.setCancelled(true);
         player.playSound(player.getLocation(), Sound.BLOCK_ANVIL_DESTROY, 5.0f, 1.0f);
         player.sendMessage(fix("&cYou can't repair this item!"));

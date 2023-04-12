@@ -31,7 +31,7 @@ public class onCharlieRevenge {
         return;
       }
       if (player.getInventory().getItemInHand().getType().equals(Material.TORCH) || player.getInventory().getItemInOffHand().getType() == Material.TORCH || effect != null) {
-        player.removePotionEffect(PotionEffectType.DARKNESS);
+        //player.removePotionEffect(PotionEffectType.DARKNESS);
         return;
       }
 

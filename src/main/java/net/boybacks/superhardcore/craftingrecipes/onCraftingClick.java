@@ -1,6 +1,9 @@
 package net.boybacks.superhardcore.craftingrecipes;
 
 import net.boybacks.superhardcore.craftingrecipes.items.*;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -36,6 +39,11 @@ public class onCraftingClick implements Listener {
       }
       if (event.getCurrentItem().getType() == Material.TOTEM_OF_UNDYING) {
         TotemOfUndying.onCrystalInventory(player);
+      }
+      if (event.getCurrentItem().getType() == Material.KNOWLEDGE_BOOK) {
+        TextComponent message = new TextComponent(fix("&3Click here to see more info about Texture Pack"));
+        message.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki#texture-pack"));
+        player.spigot().sendMessage(message);
       }
     }
   }
