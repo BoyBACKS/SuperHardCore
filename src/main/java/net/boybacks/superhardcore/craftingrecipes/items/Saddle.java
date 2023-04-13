@@ -15,7 +15,7 @@ import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
 public class Saddle implements Listener {
 
-  public static void onSaddleInventory(Player player) {
+  public static void onInventory(Player player) {
     Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &8Saddle"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
@@ -50,7 +50,7 @@ public class Saddle implements Listener {
   }
 
   @EventHandler
-  public static void onRippedHeartClick(InventoryClickEvent event) {
+  public static void onClick(InventoryClickEvent event) {
     if (event.getClickedInventory() == null) {
       return;
     }

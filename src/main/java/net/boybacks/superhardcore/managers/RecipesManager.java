@@ -47,7 +47,7 @@ public class RecipesManager {
     main.getServer().addRecipe(infusedCrystalRecipe);
 
     /* Currently, turned off */
-    ItemStack dagger = new ItemBuilderManager(Material.GOLDEN_SWORD).setTitle("&c&lSacrifice Dagger").addLoreLine("&8Custom Item").setDurability((short) 22).toItemStack();
+    ItemStack dagger = new ItemBuilderManager(Material.GOLDEN_SWORD).setTitle("&6&lSacrifice Dagger").addLoreLine("&8Custom Item").setDurability((short) 22).toItemStack();
     ShapedRecipe daggerRecipe = new ShapedRecipe(new NamespacedKey(main, "sacrifice-dagger"), new ItemStack(dagger));
     daggerRecipe.shape(" 12", " 21", "4  ");
     daggerRecipe.setIngredient('1', new ItemBuilderManager(Material.POTION).setPotionType(PotionType.INSTANT_DAMAGE, false, true).toItemStack());

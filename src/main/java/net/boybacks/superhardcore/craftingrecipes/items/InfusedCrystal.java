@@ -15,7 +15,7 @@ import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
 public class InfusedCrystal implements Listener {
 
-  public static void onInfusedCrystalInventory(Player player) {
+  public static void onInventory(Player player) {
     Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &d&lInfused Crystal"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
@@ -51,7 +51,7 @@ public class InfusedCrystal implements Listener {
   }
 
   @EventHandler
-  public static void onInfusedCrystalClick(InventoryClickEvent event) {
+  public static void onClick(InventoryClickEvent event) {
     if (event.getClickedInventory() == null) {
       return;
     }

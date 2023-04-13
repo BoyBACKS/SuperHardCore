@@ -13,10 +13,11 @@ import org.bukkit.inventory.ItemStack;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
-public class RippedHeart implements Listener {
+public class DiamondNugget implements Listener {
+
 
   public static void onInventory(Player player) {
-    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &c&lRipped Heart"));
+    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lFurnace: &b&lDiamond Nugget"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.WHITE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
@@ -24,23 +25,17 @@ public class RippedHeart implements Listener {
       }
     }
 
-    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lInfused Crystal").addLoreLine("&8Custom Item").addGlow().toItemStack();
-    inventory.setItem(10, infusedCrystal);
-    inventory.setItem(12, infusedCrystal);
-    inventory.setItem(28, infusedCrystal);
-    inventory.setItem(30, infusedCrystal);
+    ItemStack coal = new ItemStack(Material.COAL);
+    inventory.setItem(29, coal);
 
-    ItemStack goldIngot = new ItemStack(Material.GOLD_INGOT);
-    inventory.setItem(11, goldIngot);
-    inventory.setItem(19, goldIngot);
-    inventory.setItem(21, goldIngot);
-    inventory.setItem(29, goldIngot);
+    ItemStack diamond = new ItemStack(Material.DIAMOND);
+    inventory.setItem(11, diamond);
 
-    ItemStack heart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lHeart").addLoreLine("&8Custom Item").toItemStack();
-    inventory.setItem(20, heart);
+    ItemStack fire = new ItemBuilderManager(Material.ORANGE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
+    inventory.setItem(20, fire);
 
-    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lRipped Heart").addLoreLine("&8Custom Item").addGlow().toItemStack();
-    inventory.setItem(24, rippedHeart);
+    ItemStack diamondNugget = new ItemBuilderManager(Material.IRON_NUGGET).setTitle("&b&lDiamond Nugget").addLoreLine("&8Custom Item").toItemStack();
+    inventory.setItem(24, diamondNugget);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();
     inventory.setItem(40, exit);
@@ -53,7 +48,7 @@ public class RippedHeart implements Listener {
     if (event.getClickedInventory() == null) {
       return;
     }
-    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &c&lRipped Heart"))) {
+    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lFurnace: &b&lDiamond Nugget"))) {
       event.setCancelled(true);
       Player player = (Player) event.getWhoClicked();
       if (event.getCurrentItem() == null) {

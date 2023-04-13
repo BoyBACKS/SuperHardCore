@@ -6,7 +6,7 @@
 
     <groupId>net.boybacks</groupId>
     <artifactId>superhardcore</artifactId>
-    <version>0.2.2-Patch.1</version>
+    <version>0.2.2</version>
     <packaging>jar</packaging>
 
     <name>SuperHardCore</name>
@@ -39,7 +39,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>G:\GitHub\###Serwer MCWITHTHEBOIZ 4.0\SuperHardCoreSMP\plugins\SuperHardCore-${project.version}.jar</outputFile>
+                            <outputFile>Y:\SuperHardCoreSMP\SuperHardCoreSMP\plugins\SuperHardCore-${project.version}.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>

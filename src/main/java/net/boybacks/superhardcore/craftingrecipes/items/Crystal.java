@@ -15,7 +15,7 @@ import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
 public class Crystal implements Listener {
 
-  public static void onCrystalInventory(Player player) {
+  public static void onInventory(Player player) {
     Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &d&lCrystal"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
@@ -49,7 +49,7 @@ public class Crystal implements Listener {
   }
 
   @EventHandler
-  public static void onCrystalClick(InventoryClickEvent event) {
+  public static void onClick(InventoryClickEvent event) {
     if (event.getClickedInventory() == null) {
       return;
     }
@@ -64,4 +64,39 @@ public class Crystal implements Listener {
       }
     }
   }
+  /*
+
+ public static void onInventory(Player player) {
+    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: "));
+    for (int i = 0; i < inventory.getSize(); i++) {
+      if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
+        ItemStack glassPane = new ItemBuilderManager(Material.WHITE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
+        inventory.setItem(i, glassPane);
+      }
+    }
+
+    ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();
+    inventory.setItem(40, exit);
+
+    player.openInventory(inventory);
+  }
+
+  @EventHandler
+  public static void onClick(InventoryClickEvent event) {
+    if (event.getClickedInventory() == null) {
+      return;
+    }
+    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: "))) {
+      event.setCancelled(true);
+      Player player = (Player) event.getWhoClicked();
+      if (event.getCurrentItem() == null) {
+        return;
+      }
+      if (event.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE) {
+        onCraftingInventory.craftingInventory(player);
+      }
+    }
+  }
+
+  */
 }

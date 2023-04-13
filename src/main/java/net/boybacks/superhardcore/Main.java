@@ -115,10 +115,15 @@ public class Main extends JavaPlugin implements Listener {
     getServer().getPluginManager().registerEvents(new RippedHeart(), this);
     getServer().getPluginManager().registerEvents(new Saddle(), this);
     getServer().getPluginManager().registerEvents(new TotemOfUndying(), this);
+    getServer().getPluginManager().registerEvents(new DiamondNugget(), this);
+    getServer().getPluginManager().registerEvents(new EmptySoulVial(), this);
+    getServer().getPluginManager().registerEvents(new SoulVial(), this);
+    getServer().getPluginManager().registerEvents(new Heart(), this);
+    getServer().getPluginManager().registerEvents(new SacrificeDagger(), this);
   }
 
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.2.2-Patch.1");
+    ReleaseChecker.getVersion("v0.2.2");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
       System.out.println(ChatColor.RED + "There is a new version to download, go to github to get it!");

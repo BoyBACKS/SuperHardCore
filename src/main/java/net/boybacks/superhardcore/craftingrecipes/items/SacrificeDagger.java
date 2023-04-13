@@ -10,37 +10,41 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.Potion;
+import org.bukkit.potion.PotionType;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
-public class RippedHeart implements Listener {
+
+public class SacrificeDagger implements Listener {
 
   public static void onInventory(Player player) {
-    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &c&lRipped Heart"));
+    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &6&lSacrifice Dagger"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.WHITE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
         inventory.setItem(i, glassPane);
       }
     }
+    ItemStack air = new ItemStack(Material.AIR);
+    inventory.setItem(10, air);
+    inventory.setItem(19, air);
+    inventory.setItem(29, air);
+    inventory.setItem(30, air);
 
-    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lInfused Crystal").addLoreLine("&8Custom Item").addGlow().toItemStack();
-    inventory.setItem(10, infusedCrystal);
-    inventory.setItem(12, infusedCrystal);
-    inventory.setItem(28, infusedCrystal);
-    inventory.setItem(30, infusedCrystal);
+    ItemStack gold = new ItemStack(Material.GOLD_INGOT);
+    inventory.setItem(12, gold);
+    inventory.setItem(20, gold);
 
-    ItemStack goldIngot = new ItemStack(Material.GOLD_INGOT);
-    inventory.setItem(11, goldIngot);
-    inventory.setItem(19, goldIngot);
-    inventory.setItem(21, goldIngot);
-    inventory.setItem(29, goldIngot);
+    ItemStack stick = new ItemStack(Material.STICK);
+    inventory.setItem(28, stick);
 
-    ItemStack heart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lHeart").addLoreLine("&8Custom Item").toItemStack();
-    inventory.setItem(20, heart);
+    ItemStack potion = new ItemBuilderManager(Material.POTION).setPotionType(PotionType.INSTANT_DAMAGE, false, true).toItemStack();
+    inventory.setItem(11, potion);
+    inventory.setItem(21, potion);
 
-    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lRipped Heart").addLoreLine("&8Custom Item").addGlow().toItemStack();
-    inventory.setItem(24, rippedHeart);
+    ItemStack dagger = new ItemBuilderManager(Material.GOLDEN_SWORD).setTitle("&6&lSacrifice Dagger").addLoreLine("&8Custom Item").setDurability((short) 22).toItemStack();
+    inventory.setItem(24, dagger);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();
     inventory.setItem(40, exit);
@@ -53,7 +57,7 @@ public class RippedHeart implements Listener {
     if (event.getClickedInventory() == null) {
       return;
     }
-    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &c&lRipped Heart"))) {
+    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &6&lSacrifice Dagger"))) {
       event.setCancelled(true);
       Player player = (Player) event.getWhoClicked();
       if (event.getCurrentItem() == null) {
@@ -64,4 +68,6 @@ public class RippedHeart implements Listener {
       }
     }
   }
+
+
 }

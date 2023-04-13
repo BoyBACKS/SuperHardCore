@@ -13,10 +13,9 @@ import org.bukkit.inventory.ItemStack;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
-public class RippedHeart implements Listener {
-
+public class Heart implements Listener {
   public static void onInventory(Player player) {
-    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &c&lRipped Heart"));
+    Inventory inventory = Bukkit.createInventory(player, 45, fix("&3&lRecipe: &c&lHeart"));
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.WHITE_STAINED_GLASS_PANE).setTitle("&a").toItemStack();
@@ -24,23 +23,21 @@ public class RippedHeart implements Listener {
       }
     }
 
-    ItemStack infusedCrystal = new ItemBuilderManager(Material.EMERALD).setTitle("&d&lInfused Crystal").addLoreLine("&8Custom Item").addGlow().toItemStack();
-    inventory.setItem(10, infusedCrystal);
-    inventory.setItem(12, infusedCrystal);
-    inventory.setItem(28, infusedCrystal);
-    inventory.setItem(30, infusedCrystal);
+    ItemStack heartChunk = new ItemBuilderManager(Material.SPIDER_EYE).setTitle("&c&lHeart Chunk").addLoreLine("&8Custom Item").toItemStack();
+    inventory.setItem(10, heartChunk);
+    inventory.setItem(11, heartChunk);
+    inventory.setItem(12, heartChunk);
+    inventory.setItem(19, heartChunk);
+    inventory.setItem(21, heartChunk);
+    inventory.setItem(28, heartChunk);
+    inventory.setItem(29, heartChunk);
+    inventory.setItem(30, heartChunk);
 
-    ItemStack goldIngot = new ItemStack(Material.GOLD_INGOT);
-    inventory.setItem(11, goldIngot);
-    inventory.setItem(19, goldIngot);
-    inventory.setItem(21, goldIngot);
-    inventory.setItem(29, goldIngot);
+    ItemStack soulVial = new ItemBuilderManager(Material.GLASS_BOTTLE).setTitle("&b&lSoul Vial").addLoreLine("&8Custom Item").toItemStack();
+    inventory.setItem(20, soulVial);
 
     ItemStack heart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lHeart").addLoreLine("&8Custom Item").toItemStack();
-    inventory.setItem(20, heart);
-
-    ItemStack rippedHeart = new ItemBuilderManager(Material.FERMENTED_SPIDER_EYE).setTitle("&c&lRipped Heart").addLoreLine("&8Custom Item").addGlow().toItemStack();
-    inventory.setItem(24, rippedHeart);
+    inventory.setItem(24, heart);
 
     ItemStack exit = new ItemBuilderManager(Material.RED_STAINED_GLASS_PANE).setTitle("&c&lBack").toItemStack();
     inventory.setItem(40, exit);
@@ -53,7 +50,7 @@ public class RippedHeart implements Listener {
     if (event.getClickedInventory() == null) {
       return;
     }
-    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &c&lRipped Heart"))) {
+    if (event.getView().getTitle().equalsIgnoreCase(fix("&3&lRecipe: &c&lHeart"))) {
       event.setCancelled(true);
       Player player = (Player) event.getWhoClicked();
       if (event.getCurrentItem() == null) {

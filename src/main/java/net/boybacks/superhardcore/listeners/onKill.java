@@ -26,17 +26,17 @@ public class onKill implements Listener {
       }
     }
     if (!(entityType.equals(EntityType.WARDEN) && entityType.equals(EntityType.ENDER_CRYSTAL) && entityType.equals(EntityType.ENDER_DRAGON))) {
-      ItemStack heart = new ItemBuilderManager(Material.SPIDER_EYE).setTitle("&c&lHeart Chunk").addLoreLine("&8Custom Item").toItemStack();
-      if (randomizer(1)) {
-        event.getDrops().add(heart);
+      ItemStack heartChunk = new ItemBuilderManager(Material.SPIDER_EYE).setTitle("&c&lHeart Chunk").addLoreLine("&8Custom Item").toItemStack();
+      if (randomizer(10)) {
+        event.getDrops().add(heartChunk);
       }
     }
 
     if (event.getEntity().getKiller() instanceof Player) {
       Player player = (Player) event.getEntity().getKiller();
       ItemStack heldItem = player.getInventory().getItemInMainHand();
-      if (heldItem.getItemMeta().getDisplayName().equals(fix("&c&lSacrifice Dagger"))) {
-        if (randomizer(500)) {
+      if (heldItem.getItemMeta().getDisplayName().equals(fix("&6&lSacrifice Dagger"))) {
+        if (randomizer(20)) {
           event.getDrops().add(new ItemBuilderManager(Material.FEATHER).setTitle("&b&lWild Soul").addLoreLine("&8Custom Item").toItemStack());
         }
       }

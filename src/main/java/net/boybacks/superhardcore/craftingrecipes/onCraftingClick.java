@@ -1,6 +1,7 @@
 package net.boybacks.superhardcore.craftingrecipes;
 
 import net.boybacks.superhardcore.craftingrecipes.items.*;
+import net.boybacks.superhardcore.managers.ItemBuilderManager;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -26,19 +27,34 @@ public class onCraftingClick implements Listener {
         return;
       }
       if (event.getCurrentItem().getType() == Material.SADDLE) {
-        Saddle.onSaddleInventory(player);
+        Saddle.onInventory(player);
       }
       if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&d&lCrystal"))) {
-        Crystal.onCrystalInventory(player);
+        Crystal.onInventory(player);
       }
       if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&d&lInfused Crystal"))) {
-        InfusedCrystal.onInfusedCrystalInventory(player);
+        InfusedCrystal.onInventory(player);
       }
       if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lRipped Heart"))) {
-        RippedHeart.onRippedHeartInventory(player);
+        RippedHeart.onInventory(player);
       }
       if (event.getCurrentItem().getType() == Material.TOTEM_OF_UNDYING) {
-        TotemOfUndying.onCrystalInventory(player);
+        TotemOfUndying.onInventory(player);
+      }
+      if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&b&lDiamond Nugget"))) {
+        DiamondNugget.onInventory(player);
+      }
+      if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&b&lEmpty Soul Vial"))) {
+        EmptySoulVial.onInventory(player);
+      }
+      if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&b&lSoul Vial"))) {
+        SoulVial.onInventory(player);
+      }
+      if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&c&lHeart"))) {
+        Heart.onInventory(player);
+      }
+      if (event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(fix("&6&lSacrifice Dagger"))) {
+        SacrificeDagger.onInventory(player);
       }
       if (event.getCurrentItem().getType() == Material.KNOWLEDGE_BOOK) {
         TextComponent message = new TextComponent(fix("&3Click here to see more info about Texture Pack"));
