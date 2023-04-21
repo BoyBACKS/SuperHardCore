@@ -39,7 +39,7 @@ public class SacrificeDagger implements Listener {
     ItemStack stick = new ItemStack(Material.STICK);
     inventory.setItem(28, stick);
 
-    ItemStack potion = new ItemBuilderManager(Material.POTION).setPotionType(PotionType.INSTANT_DAMAGE, false, true).toItemStack();
+    ItemStack potion = new ItemBuilderManager(Material.POTION).setPotionType(PotionType.POISON, false, true).toItemStack();
     inventory.setItem(11, potion);
     inventory.setItem(21, potion);
 

@@ -52,7 +52,7 @@ public class onUpdateInventory {
    */
 
   public static void updateInv(Player player) {
-    Inventory inventory = Bukkit.createInventory(player, 27, fix("&4&lChange Log"));
+    Inventory inventory = Bukkit.createInventory(player, 36, fix("&4&lChange Log"));
     ArrayList<BaseComponent[]> bookv01Page = new ArrayList<>();
     bookv01Page.add(
         new ComponentBuilder(fix("  &c&lChange log v0.1"))
@@ -168,6 +168,28 @@ public class onUpdateInventory {
             .create());
     ItemStack bookv022 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2.2", "Super HardCore Updates", bookv022Page);
     inventory.setItem(15, bookv022);
+
+    ArrayList<BaseComponent[]> bookv023Page = new ArrayList<>();
+    bookv023Page.add(new ComponentBuilder(fix(" &c&lChange log v0.2.3"))
+        .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+        .append(fix("\n\n&a&l+&0 We added new enemy, it appears randomly every 3 minutes with a chance of 7.5%"))
+        .append(fix("\n\n&b&l⟳&0 We fixed major problem with taking damage by darkness, now everything works"))
+        .create());
+    bookv023Page.add(new ComponentBuilder(fix("&b&l⟳&0 We changed a few mobs, by changing drops and health"))
+            .append(fix("\n\n&b&l⟳&0 We changed crafting recipe of a Sacrifice Dagger"))
+            .append(fix("\n\n&6&l?&0 We have idea to implement Diamond and Netherite items"))
+        .create());
+    bookv023Page.add(
+        new ComponentBuilder(fix(" &c&lChange log v0.2.3"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v023"))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
+                    .create()))
+                .create())
+            .create());
+    ItemStack bookv023 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2.3", "Super HardCore Updates", bookv023Page);
+    inventory.setItem(20, bookv023);
 
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {

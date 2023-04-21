@@ -19,6 +19,10 @@ public class onSpawn implements Listener {
       dam.setMaxHealth(750);
       dam.setHealth(750);
     }
+    if (dam.getType().equals(EntityType.BLAZE)) {
+      dam.setMaxHealth(40);
+      dam.setHealth(40);
+    }
   }
 
   @EventHandler

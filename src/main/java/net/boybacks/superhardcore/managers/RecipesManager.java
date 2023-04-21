@@ -50,7 +50,7 @@ public class RecipesManager {
     ItemStack dagger = new ItemBuilderManager(Material.GOLDEN_SWORD).setTitle("&6&lSacrifice Dagger").addLoreLine("&8Custom Item").setDurability((short) 22).toItemStack();
     ShapedRecipe daggerRecipe = new ShapedRecipe(new NamespacedKey(main, "sacrifice-dagger"), new ItemStack(dagger));
     daggerRecipe.shape(" 12", " 21", "4  ");
-    daggerRecipe.setIngredient('1', new ItemBuilderManager(Material.POTION).setPotionType(PotionType.INSTANT_DAMAGE, false, true).toItemStack());
+    daggerRecipe.setIngredient('1', new ItemBuilderManager(Material.POTION).setPotionType(PotionType.POISON, false, true).toItemStack());
     daggerRecipe.setIngredient('2', Material.GOLD_INGOT);
     daggerRecipe.setIngredient('4', Material.STICK);
     main.getServer().addRecipe(daggerRecipe);

@@ -6,13 +6,12 @@ import net.boybacks.superhardcore.craftingrecipes.items.*;
 import net.boybacks.superhardcore.craftingrecipes.*;
 import net.boybacks.superhardcore.listeners.*;
 import net.boybacks.superhardcore.managers.*;
+import net.boybacks.superhardcore.test.Test;
 import net.boybacks.superhardcore.update.*;
 import org.bukkit.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.*;
-import org.bukkit.event.inventory.FurnaceSmeltEvent;
-import org.bukkit.inventory.FurnaceRecipe;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.*;
 import org.jetbrains.annotations.*;
@@ -36,20 +35,20 @@ public class Main extends JavaPlugin implements Listener {
     new onUpdateCommand(this);
     new onCraftingCommand(this);
     removeEnemyBars();
-    Test();
+    onMinionSummon.onSummon();
+    //Test();
   }
 
   @Override
   public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
     Player player = (Player) sender;
-    if (command.getName().equalsIgnoreCase("sethealth") && sender.isOp())
+    if (command.getName().equalsIgnoreCase("sethealth") && sender.isOp()) {
       if (args.length == 2) {
         String name = args[1];
         int value = 0;
         try {
           value = Integer.valueOf(args[0]);
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
           sender.sendMessage(fix("&cSet number as value. Use command /sethealth <value> <player>"));
           return false;
         }
@@ -57,7 +56,7 @@ public class Main extends JavaPlugin implements Listener {
           sender.sendMessage(fix("&cYou can't set more health than 30"));
           return false;
         }
-        if (Bukkit.getPlayer(name) !=null) {
+        if (Bukkit.getPlayer(name) != null) {
           Bukkit.getPlayer(name).setMaxHealth(value);
           Bukkit.getPlayer(name).setHealth(value);
         }
@@ -66,8 +65,7 @@ public class Main extends JavaPlugin implements Listener {
         int value = 0;
         try {
           value = Integer.valueOf(args[0]);
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
           sender.sendMessage(fix("&cSet number as value. Use command /sethealth <value>"));
           return false;
         }
@@ -81,6 +79,7 @@ public class Main extends JavaPlugin implements Listener {
       else {
         return false;
       }
+    }
     if (command.getName().equalsIgnoreCase("debug") && player.isOp()) {
       ItemStack heartChunk = new ItemBuilderManager(Material.SPIDER_EYE, 1).setTitle("&c&lHeart Chunk").addLoreLine("&8Custom Item").toItemStack();
       ItemStack wildSoul = new ItemBuilderManager(Material.FEATHER, 1).setTitle("&b&lWild Soul").addLoreLine("&8Custom Item").toItemStack();
@@ -104,6 +103,8 @@ public class Main extends JavaPlugin implements Listener {
     getServer().getPluginManager().registerEvents(new onRepair(), this);
     getServer().getPluginManager().registerEvents(new onJoin(), this);
     //getServer().getPluginManager().registerEvents(new onDamage(), this);
+    getServer().getPluginManager().registerEvents(new onMinionSummon(), this);
+    //getServer().getPluginManager().registerEvents(new Test(), this);
 
     /* Update Inventory Click Event */
     getServer().getPluginManager().registerEvents(new onUpdateClick(), this);
@@ -123,14 +124,10 @@ public class Main extends JavaPlugin implements Listener {
   }
 
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.2.2");
+    ReleaseChecker.getVersion("v0.2.3");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
       System.out.println(ChatColor.RED + "There is a new version to download, go to github to get it!");
     }
-  }
-
-  public static void Test() {
-
   }
 }

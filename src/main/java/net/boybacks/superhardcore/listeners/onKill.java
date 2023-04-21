@@ -25,6 +25,21 @@ public class onKill implements Listener {
         event.getDrops().add(rippedHeart);
       }
     }
+
+    if (entityType.equals(EntityType.WITCH)) {
+      event.getDrops().removeIf(item -> item.getType() == Material.SPIDER_EYE);
+//      if (randomizer(5)) {
+//        event.getDrops().add(new ItemStack(Material.SPIDER_EYE));
+//      }
+    }
+
+    if (entityType.equals(EntityType.SPIDER) || entityType.equals(EntityType.CAVE_SPIDER)) {
+      event.getDrops().remove(new ItemStack(Material.SPIDER_EYE));
+      if (randomizer(50)) {
+        event.getDrops().add(new ItemStack(Material.SPIDER_EYE));
+      }
+    }
+
     if (!(entityType.equals(EntityType.WARDEN) && entityType.equals(EntityType.ENDER_CRYSTAL) && entityType.equals(EntityType.ENDER_DRAGON))) {
       ItemStack heartChunk = new ItemBuilderManager(Material.SPIDER_EYE).setTitle("&c&lHeart Chunk").addLoreLine("&8Custom Item").toItemStack();
       if (randomizer(10)) {
@@ -33,8 +48,17 @@ public class onKill implements Listener {
     }
 
     if (event.getEntity().getKiller() instanceof Player) {
-      Player player = (Player) event.getEntity().getKiller();
+      Player player = event.getEntity().getKiller();
       ItemStack heldItem = player.getInventory().getItemInMainHand();
+      if (event.getEntity().getName().equals(fix("&c&lCharlie's Minion"))) {
+        if (randomizer(400)) {
+          event.getDrops().add(new ItemBuilderManager(Material.FEATHER).setTitle("&b&lWild Soul").addLoreLine("&8Custom Item").toItemStack());
+        }
+      }
+
+      if (heldItem.getItemMeta() == null) {
+        return;
+      }
       if (heldItem.getItemMeta().getDisplayName().equals(fix("&6&lSacrifice Dagger"))) {
         if (randomizer(20)) {
           event.getDrops().add(new ItemBuilderManager(Material.FEATHER).setTitle("&b&lWild Soul").addLoreLine("&8Custom Item").toItemStack());
