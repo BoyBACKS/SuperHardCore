@@ -2,11 +2,11 @@ package net.boybacks.superhardcore;
 
 import net.boybacks.releaseschecker.ReleaseChecker;
 import net.boybacks.superhardcore.bossbar.*;
+import net.boybacks.superhardcore.craftingrecipes.handlers.onCraftingClick;
+import net.boybacks.superhardcore.craftingrecipes.handlers.onCraftingCommand;
 import net.boybacks.superhardcore.craftingrecipes.items.*;
-import net.boybacks.superhardcore.craftingrecipes.*;
 import net.boybacks.superhardcore.listeners.*;
 import net.boybacks.superhardcore.managers.*;
-import net.boybacks.superhardcore.test.Test;
 import net.boybacks.superhardcore.update.*;
 import org.bukkit.*;
 import org.bukkit.command.*;

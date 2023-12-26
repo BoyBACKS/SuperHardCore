@@ -27,27 +27,25 @@ public class onCharlieRevenge {
     for (Player player : Bukkit.getOnlinePlayers()) {
       Location location = player.getLocation();
       PotionEffect effect = player.getPotionEffect(PotionEffectType.NIGHT_VISION);
-      if (player.getGameMode() != GameMode.SURVIVAL) {
-        return;
-      }
-      if (player.getInventory().getItemInHand().getType().equals(Material.TORCH) || player.getInventory().getItemInOffHand().getType() == Material.TORCH || effect != null) {
-        return;
-      }
-
-      if (location.getBlock().getLightLevel() <= 6) {
-        if (player.getPotionEffect(PotionEffectType.DARKNESS) == null) {
-          player.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS, 20*13, 0, true, false));
-          player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(fix("&4&lYOUR SOUL WILL BE MINE")));
+      if (player.getGameMode() == GameMode.SURVIVAL) {
+        if (player.getInventory().getItemInHand().getType().equals(Material.TORCH) || player.getInventory().getItemInOffHand().getType() == Material.TORCH || effect != null) {
+          return;
         }
-        player.damage(1.5);
-        player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_SCREAM, 20.0f, 0.1f);
-      }
-      else if (location.getBlock().getLightLevel() <= 8) {
-        if (player.getPotionEffect(PotionEffectType.DARKNESS) == null) {
-          player.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS, 20*13, 0, true, false));
-          player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(fix("&4&lYOUR SOUL WILL BE MINE")));
+        if (location.getBlock().getLightLevel() <= 6) {
+          if (player.getPotionEffect(PotionEffectType.DARKNESS) == null) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS, 20*13, 0, true, false));
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(fix("&4&lYOUR SOUL WILL BE MINE")));
+          }
+          player.damage(1.5);
+          player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_SCREAM, 20.0f, 0.1f);
         }
-        player.playSound(player.getLocation(), Sound.ENTITY_HUSK_AMBIENT, 5.0f, 0.5f);
+        else if (location.getBlock().getLightLevel() <= 8) {
+          if (player.getPotionEffect(PotionEffectType.DARKNESS) == null) {
+            player.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS, 20*13, 0, true, false));
+            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(fix("&4&lYOUR SOUL WILL BE MINE")));
+          }
+          player.playSound(player.getLocation(), Sound.ENTITY_HUSK_AMBIENT, 5.0f, 0.5f);
+        }
       }
     }
   }

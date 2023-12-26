@@ -1,6 +1,6 @@
 package net.boybacks.superhardcore.craftingrecipes.items;
 
-import net.boybacks.superhardcore.craftingrecipes.onCraftingInventory;
+import net.boybacks.superhardcore.craftingrecipes.handlers.onCraftingInventory;
 import net.boybacks.superhardcore.managers.ItemBuilderManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -10,7 +10,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionType;
 
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
