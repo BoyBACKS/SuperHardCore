@@ -191,6 +191,29 @@ public class onUpdateInventory {
     ItemStack bookv023 = BookBuilderManager.BookBuilder("&c&lUpdate v0.2.3", "Super HardCore Updates", bookv023Page);
     inventory.setItem(20, bookv023);
 
+    ArrayList<BaseComponent[]> bookv030Page = new ArrayList<>();
+    bookv030Page.add(new ComponentBuilder(fix(" &c&lChange log v0.3.0"))
+        .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+        .append(fix("\n\n&b&l⟳&0 We ported the package from version 1.19.x to 1.19.x-1.20.x and updated the plugins."))
+        .create());
+    bookv030Page.add(new ComponentBuilder(fix("&6&l?&0 We encountered a problem in the ViaVersions plugin and there was a limitation to the server entry version to 1.20.4."))
+        .create());
+    bookv030Page.add(new ComponentBuilder(fix(" &c&lChange log v0.3.0\n     &c&lExtra patch"))
+        .append(fix("\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+        .append(fix("\n\n&6&l⟳&0 We managed to fix the problem occurring with the problem in the ViaVersions plugin, now everything works"))
+        .create());
+    bookv030Page.add(
+        new ComponentBuilder(fix(" &c&lChange log v0.3.0"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v030"))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
+                    .create()))
+                .create())
+            .create());
+    ItemStack bookv030 = BookBuilderManager.BookBuilder("&c&lUpdate v0.3.0", "Super HardCore Updates", bookv030Page);
+    inventory.setItem(21, bookv030);
+
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {
         ItemStack glassPane = new ItemBuilderManager(Material.BLACK_STAINED_GLASS_PANE).setTitle("&a").toItemStack();

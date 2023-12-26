@@ -1,4 +1,4 @@
-package net.boybacks.superhardcore.craftingrecipes;
+package net.boybacks.superhardcore.craftingrecipes.handlers;
 
 import net.boybacks.superhardcore.managers.ItemBuilderManager;
 import net.md_5.bungee.api.chat.hover.content.Item;

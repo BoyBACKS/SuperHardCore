@@ -1,4 +1,4 @@
-package net.boybacks.superhardcore.craftingrecipes;
+package net.boybacks.superhardcore.craftingrecipes.handlers;
 
 import net.boybacks.superhardcore.Main;
 import org.bukkit.command.Command;
