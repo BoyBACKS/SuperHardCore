@@ -1,9 +1,10 @@
-package net.boybacks.superhardcore.craftingrecipes.handlers;
+package net.boybacks.superhardcore.recipes.handlers;
 
-import net.boybacks.superhardcore.craftingrecipes.items.*;
-import net.boybacks.superhardcore.managers.ItemBuilderManager;
+import net.boybacks.superhardcore.recipes.items.craftable.*;
+import net.boybacks.superhardcore.recipes.items.craftable.vanilla.Saddle;
+import net.boybacks.superhardcore.recipes.items.craftable.vanilla.TotemOfUndying;
+import net.boybacks.superhardcore.recipes.items.smeltable.DiamondNugget;
 import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

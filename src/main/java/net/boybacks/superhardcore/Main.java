@@ -2,11 +2,16 @@ package net.boybacks.superhardcore;
 
 import net.boybacks.releaseschecker.ReleaseChecker;
 import net.boybacks.superhardcore.bossbar.*;
-import net.boybacks.superhardcore.craftingrecipes.handlers.onCraftingClick;
-import net.boybacks.superhardcore.craftingrecipes.handlers.onCraftingCommand;
-import net.boybacks.superhardcore.craftingrecipes.items.*;
+import net.boybacks.superhardcore.recipes.handlers.onCraftingClick;
+import net.boybacks.superhardcore.recipes.handlers.onCraftingCommand;
 import net.boybacks.superhardcore.listeners.*;
 import net.boybacks.superhardcore.managers.*;
+import net.boybacks.superhardcore.recipes.items.craftable.*;
+import net.boybacks.superhardcore.recipes.items.craftable.vanilla.Saddle;
+import net.boybacks.superhardcore.recipes.items.craftable.vanilla.TotemOfUndying;
+import net.boybacks.superhardcore.recipes.items.droppable.HeartChunk;
+import net.boybacks.superhardcore.recipes.items.droppable.WildSoul;
+import net.boybacks.superhardcore.recipes.items.smeltable.DiamondNugget;
 import net.boybacks.superhardcore.update.*;
 import org.bukkit.*;
 import org.bukkit.command.*;
@@ -16,7 +21,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.*;
 import org.jetbrains.annotations.*;
 
-import static net.boybacks.superhardcore.bossbar.EntityBossBar.*;
 import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
 public class Main extends JavaPlugin implements Listener {
@@ -27,16 +31,33 @@ public class Main extends JavaPlugin implements Listener {
   public void onEnable() {
     main = this;
     System.out.println("Plugin is working");
-    latestVersionChecker();
-    registerListeners();
-    RecipesManager.recipes();
-    RecipesManager.removeBukkitRecipes();
-    onCharlieRevenge.runnableCharlieRevenge();
+    this.latestVersionChecker();
+
+    new RecipesManager().recipes();
+    new RecipesManager().removeBukkitRecipes();
+    new onCharlieRevenge().runnableCharlieRevenge();
+    new EntityBossBar().removeEnemyBars();
+    new onMinionSummon().onSummon();
+
     new onUpdateCommand(this);
     new onCraftingCommand(this);
-    removeEnemyBars();
-    onMinionSummon.onSummon();
-    //Test();
+
+
+    registerEvents(
+        this, new onDeath(), new onSpawn(), new EntityBossBar(), new onInteract(), new onKill(),
+        new onRepair(), new onJoin(), new onMinionSummon(),
+//        new onDamage(),
+        new onDimentionEnter(), new onUpdateClick()
+    );
+
+    registerEvents(
+        /* Craftings */
+        new onCraftingClick(),
+        new Crystal(), new InfusedCrystal(), new RippedHeart(), new Saddle(), new TotemOfUndying(), new DiamondNugget(),
+        new EmptySoulVial(), new SoulVial(), new Heart(), new SacrificeDagger(),
+        /* Drops */
+        new HeartChunk(), new WildSoul()
+    );
   }
 
   @Override
@@ -89,45 +110,16 @@ public class Main extends JavaPlugin implements Listener {
     return false;
   }
 
-  public void registerListeners() {
-    /* Old Listeners */
-    //getServer().getPluginManager().registerEvents(new onCraft(), this);
-    //getServer().getPluginManager().registerEvents(new onMove(), this);
-
-    getServer().getPluginManager().registerEvents(this, this);
-    getServer().getPluginManager().registerEvents(new onDeath(), this);
-    getServer().getPluginManager().registerEvents(new onSpawn(), this);
-    getServer().getPluginManager().registerEvents(new EntityBossBar(), this);
-    getServer().getPluginManager().registerEvents(new onInteract(), this);
-    getServer().getPluginManager().registerEvents(new onKill(), this);
-    getServer().getPluginManager().registerEvents(new onRepair(), this);
-    getServer().getPluginManager().registerEvents(new onJoin(), this);
-    //getServer().getPluginManager().registerEvents(new onDamage(), this);
-    getServer().getPluginManager().registerEvents(new onMinionSummon(), this);
-    //getServer().getPluginManager().registerEvents(new Test(), this);
-
-    /* Update Inventory Click Event */
-    getServer().getPluginManager().registerEvents(new onUpdateClick(), this);
-
-    /* Custom Crafting Inventories Click Events */
-    getServer().getPluginManager().registerEvents(new onCraftingClick(), this);
-    getServer().getPluginManager().registerEvents(new Crystal(), this);
-    getServer().getPluginManager().registerEvents(new InfusedCrystal(), this);
-    getServer().getPluginManager().registerEvents(new RippedHeart(), this);
-    getServer().getPluginManager().registerEvents(new Saddle(), this);
-    getServer().getPluginManager().registerEvents(new TotemOfUndying(), this);
-    getServer().getPluginManager().registerEvents(new DiamondNugget(), this);
-    getServer().getPluginManager().registerEvents(new EmptySoulVial(), this);
-    getServer().getPluginManager().registerEvents(new SoulVial(), this);
-    getServer().getPluginManager().registerEvents(new Heart(), this);
-    getServer().getPluginManager().registerEvents(new SacrificeDagger(), this);
-  }
-
   public void latestVersionChecker() {
-    ReleaseChecker.getVersion("v0.2.3");
+    ReleaseChecker.getVersion("v0.3.1");
     ReleaseChecker.getRepository("boybacks", "SuperHardCore");
     if (!ReleaseChecker.releaseCheck()) {
-      System.out.println(ChatColor.RED + "There is a new version to download, go to github to get it!");
+      System.err.println("There is a new version to download, go to github to get it!");
     }
+  }
+
+  private void registerEvents(Listener... listeners) {
+    for (Listener listener : listeners)
+      Bukkit.getPluginManager().registerEvents(listener, this);
   }
 }

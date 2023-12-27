@@ -27,12 +27,9 @@ public class onInteract implements Listener {
         player.sendMessage("&cYour health has reached its maximum level!");
         return;
       }
-      if (health == 29) {
-        health++;
-      }
-      else {
-        health += 2;
-      }
+      if (health == 29) health++;
+      else health += 2;
+
       player.setMaxHealth(health);
       Bukkit.broadcastMessage(fix("Player " + player.getDisplayName() + " used &c&lRipped Heart"));
       ItemStack itemStack = playerInventory.getItemInHand();
