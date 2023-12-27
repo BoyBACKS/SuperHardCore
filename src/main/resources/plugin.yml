@@ -4,6 +4,7 @@ main: net.boybacks.superhardcore.Main
 api-version: 1.19
 author: BoyBACKS
 description: Plugin created especially for Super HardCore SMP.
+website: https://github.com/BoyBACKS/SuperHardCoreSMP
 depend:
   - Tempban-Api
 commands:

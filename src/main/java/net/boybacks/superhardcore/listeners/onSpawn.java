@@ -14,7 +14,7 @@ public class onSpawn implements Listener {
 
   @EventHandler
   public void onMobSpawn(CreatureSpawnEvent event) {
-    Damageable dam = (Damageable) event.getEntity();
+    Damageable dam = event.getEntity();
     if (dam.getType().equals(EntityType.WARDEN)) {
       dam.setMaxHealth(750);
       dam.setHealth(750);

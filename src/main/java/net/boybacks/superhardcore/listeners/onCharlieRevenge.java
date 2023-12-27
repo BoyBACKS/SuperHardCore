@@ -13,7 +13,7 @@ import static net.boybacks.superhardcore.managers.ChatManager.fix;
 
 public class onCharlieRevenge {
 
-  public static void runnableCharlieRevenge() {
+  public void runnableCharlieRevenge() {
     BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
     scheduler.scheduleSyncRepeatingTask(Main.main, new Runnable() {
       @Override

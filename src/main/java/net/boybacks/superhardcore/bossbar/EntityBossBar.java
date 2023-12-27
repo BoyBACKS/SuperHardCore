@@ -59,7 +59,7 @@ public class EntityBossBar implements Listener {
     }
   }
 
-  public static void removeEnemyBars() {
+  public void removeEnemyBars() {
     new BukkitRunnable() {
       @Override
       public void run() {

@@ -1,7 +1,6 @@
-package net.boybacks.superhardcore.craftingrecipes.handlers;
+package net.boybacks.superhardcore.recipes.handlers;
 
 import net.boybacks.superhardcore.managers.ItemBuilderManager;
-import net.md_5.bungee.api.chat.hover.content.Item;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

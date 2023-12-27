@@ -109,8 +109,6 @@ public class onUpdateInventory {
     inventory.setItem(12, bookv011);
 
 
-    /*Zrobić książke z patchami 0.2 (Nerf ciemności, gui /crafts, receptura totemu, naprawa błędu z interakcjami,
-        naprawa błędu z blokowaniem craftingów, (?) testy z texturepackiem)*/
     ArrayList<BaseComponent[]> bookv02Page = new ArrayList<>();
     bookv02Page.add(new ComponentBuilder(fix("  &c&lChange log v0.2"))
         .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
@@ -213,6 +211,27 @@ public class onUpdateInventory {
             .create());
     ItemStack bookv030 = BookBuilderManager.BookBuilder("&c&lUpdate v0.3.0", "Super HardCore Updates", bookv030Page);
     inventory.setItem(21, bookv030);
+
+
+    ArrayList<BaseComponent[]> bookv031Page = new ArrayList<>();
+    bookv031Page.add(new ComponentBuilder(fix(" &c&lChange log v0.3.1"))
+        .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+        .append(fix("\n\n&a&l+&0 We have added a new mechanic when trying to go to The End"))
+        .append(fix("\n\n&6&l⟳&0 We have fixed a problem that occurred when repairing Sacrifice Dagger"))
+        .create());
+    bookv031Page.add(new ComponentBuilder(fix("&6&l⟳&0 We have fixed the problem related to crafting custom items, while there was a problem related to porting a package from an older to a newer version. All custom scrafted items on older versions are no longer playable."))
+        .create());
+    bookv031Page.add(
+        new ComponentBuilder(fix(" &c&lChange log v0.3.1"))
+            .append(fix("\n\n&0&m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯"))
+            .append(new ComponentBuilder(fix("\n\n    &3&n&lSide changes"))
+                .event(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/BoyBACKS/SuperHardCoreSMP/wiki/Updates#update-v031"))
+                .event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(fix("&f>> &b&lClick here to see other changes"))
+                    .create()))
+                .create())
+            .create());
+    ItemStack bookv031 = BookBuilderManager.BookBuilder("&c&lUpdate v0.3.1", "Super HardCore Updates", bookv031Page);
+    inventory.setItem(22, bookv031);
 
     for (int i = 0; i < inventory.getSize(); i++) {
       if(inventory.getItem(i) == null || inventory.getItem(i).getType().equals(Material.AIR)) {

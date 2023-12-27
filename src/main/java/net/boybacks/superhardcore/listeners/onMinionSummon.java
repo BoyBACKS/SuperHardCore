@@ -18,7 +18,7 @@ import static net.boybacks.superhardcore.managers.RandomizerManager.randomizer;
 
 public class onMinionSummon implements Listener {
 
-  public static void onSummon() {
+  public void onSummon() {
     new BukkitRunnable() {
       @Override
       public void run() {
